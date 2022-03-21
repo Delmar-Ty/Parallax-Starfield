@@ -73,8 +73,8 @@ function Point(x, y, z, size) {
         ctx.closePath();
     }
     this.update = function() {
-        this.xoff = (mouse.x - this.x) / this.z;
-        this.yoff = (mouse.y - this.y) / this.z;
+        this.xoff = ((mouse.x - this.x) / this.z) * -1;
+        this.yoff = ((mouse.y - this.y) / this.z) * -1;
         this.draw();
     }
 }
