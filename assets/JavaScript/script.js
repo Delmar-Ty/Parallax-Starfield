@@ -28,10 +28,10 @@ let colors = [
 
 let init = () => {
     for (let i = 0; i < count; i++) {
-        let size = 3;
+        let z = randomNumber(1, 50);
+        let size = (50 - z) / 10;
         let x = randomNumber(size, canvas.width - size);
         let y = randomNumber(size, canvas.height - size);
-        let z = randomNumber(1, 50);
         points[i] = new Point(x, y, z, size);
         points[i].draw();
     }
@@ -49,8 +49,8 @@ window.addEventListener('mousemove', function(e) {
 });
 
 window.addEventListener('touchmove', function(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.x = e.targetTouches[0].clientX;
+    mouse.y = e.targetTouches[0].clientY;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < count; i++) {
         points[i].update();
